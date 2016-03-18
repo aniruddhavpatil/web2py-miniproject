@@ -91,4 +91,7 @@ auth.settings.reset_password_requires_verification = True
 ## after defining tables, uncomment below to enable auditing
 # auth.enable_record_versioning(db)
 db.define_table('recipe',
-		Field('name','string'))
+		Field('name','string'),
+		Field('description','text'),
+		Field('picture','upload'),
+		Field('likes','integer'))
