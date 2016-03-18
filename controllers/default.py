@@ -57,6 +57,7 @@ def call():
     """
     return service()
 
+@auth.requires_login()
 def newrecipe():
 	recipe=SQLFORM(db.recipe).process()
 	return locals()
