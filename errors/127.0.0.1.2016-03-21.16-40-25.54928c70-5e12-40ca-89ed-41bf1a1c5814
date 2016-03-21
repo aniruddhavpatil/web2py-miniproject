@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.IOError'> [Errno 36] File name too long: '/home/kitewarrior4/ITWS/assg3/web2py/applications/recipository/databases/../uploads/recipe.image.96e5d81f6c7d0a1c.7265636970652e696d6167652e393738393139383839656264306537622e37323635363336393730363532653730363936333734373537323635326533393338333133323635333736353632363536343632363436363332333036363265333733393336333133373332333633313332363533373330333636353336333732653730366536372e706e67.png'"
+p3
+sS'layer'
+p4
+S'/home/kitewarrior4/ITWS/assg3/web2py/applications/recipository/controllers/default.py'
+p5
+sS'code'
+p6
+S"# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a sample controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n#########################################################################\n\ndef index():\n    records = SQLTABLE(db().select(db.recipe.name,db.recipe.description,db.recipe.image),\n                      upload=URL('download'),_id='records')\n    return locals()\n\n@cache.action()\ndef download():\n    return response.download(request, db)\n\ndef user():\n    return dict(form=auth())\n\ndef call():\n    return service()\n\n\n@auth.requires_login()\ndef newrecipe():\n    recipe = SQLFORM(db.recipe,upload=URL('download')).process()\n    return locals()\nresponse._vars=response._caller(newrecipe)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/kitewarrior4/ITWS/assg3/web2py/applications/recipository/controllers/default.py", line 31, in <module>\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/tools.py", line 4236, in f\n    return action(*a, **b)\n  File "/home/kitewarrior4/ITWS/assg3/web2py/applications/recipository/controllers/default.py", line 29, in newrecipe\n    recipe = SQLFORM(db.recipe,upload=URL(\'download\')).process()\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/html.py", line 2304, in process\n    self.validate(**kwargs)\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/html.py", line 2241, in validate\n    if self.accepts(**kwargs):\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/sqlhtml.py", line 1638, in accepts\n    field.uploadfolder)\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/packages/dal/pydal/objects.py", line 1542, in store\n    dest_file = open(pathfilename, \'wb\')\nIOError: [Errno 36] File name too long: \'/home/kitewarrior4/ITWS/assg3/web2py/applications/recipository/databases/../uploads/recipe.image.96e5d81f6c7d0a1c.7265636970652e696d6167652e393738393139383839656264306537622e37323635363336393730363532653730363936333734373537323635326533393338333133323635333736353632363536343632363436363332333036363265333733393336333133373332333633313332363533373330333636353336333732653730366536372e706e67.png\'\n'
+p11
+s.

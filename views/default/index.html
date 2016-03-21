@@ -1,6 +1,5 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
-
 {{block header}}
     <header class="container-fluid background">
       <div class="jumbotron text-center">
@@ -12,7 +11,6 @@
     </header>
 {{end}}
 
-<a href="newrecipe">New Recipe</a>
 {{if 'message' in globals():}}
 <h2>{{=message}}</h2>
 <p class="lead">{{=T('How did you get here?')}}</p>
@@ -31,9 +29,8 @@
 {{elif 'content' in globals():}}
 {{=content}}
 {{else:}}
-{{=BEAUTIFY(response._vars)}}
+{{=recipe}}
 {{pass}}
-
 {{block right_sidebar}}
 <div class="panel panel-info">
   <div class="panel-heading"><h3 class="panel-title"><a class="btn-block"
@@ -50,4 +47,6 @@
     <li class="list-group-item"><a href="http://web2py.com/book">{{=T('Documentation')}}</a></li>
   </ul>
 </div>
+
 {{end}}
+<h2><a href="newrecipe#">New Recipe</a></h2>

@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.SyntaxError'> Set: no tables selected"
+p3
+sS'layer'
+p4
+S'/home/kitewarrior4/ITWS/assg3/web2py/applications/recipository/controllers/default.py'
+p5
+sS'code'
+p6
+S'# -*- coding: utf-8 -*-\n# this file is released under public domain and you can use without limitations\n\n#########################################################################\n## This is a sample controller\n## - index is the default action of any application\n## - user is required for authentication and authorization\n## - download is for downloading files uploaded in the db (does streaming)\n#########################################################################\n\ndef index():\n    records = SQLTABLE(db(db.recipe.ALL).select())\n    return locals()\n\ndef user():\n    return dict(form=auth())\n\n\n@cache.action()\ndef download():\n    return response.download(request, db)\n\n\ndef call():\n    return service()\n\n@auth.requires_login()\ndef newrecipe():\n\trecipe = SQLFORM(db.recipe).process()\n\n\treturn locals()\nresponse._vars=response._caller(index)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/kitewarrior4/ITWS/assg3/web2py/applications/recipository/controllers/default.py", line 32, in <module>\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/kitewarrior4/ITWS/assg3/web2py/applications/recipository/controllers/default.py", line 12, in index\n    records = SQLTABLE(db(db.recipe.ALL).select())\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/packages/dal/pydal/objects.py", line 2025, in select\n    return adapter.select(self.query,fields,attributes)\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/packages/dal/pydal/adapters/sqlite.py", line 124, in select\n    return super(SQLiteAdapter, self).select(query, fields, attributes)\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/packages/dal/pydal/adapters/base.py", line 1280, in select\n    sql = self._select(query, fields, attributes)\n  File "/home/kitewarrior4/ITWS/assg3/web2py/gluon/packages/dal/pydal/adapters/base.py", line 1101, in _select\n    raise SyntaxError(\'Set: no tables selected\')\nSyntaxError: Set: no tables selected\n'
+p11
+s.

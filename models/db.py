@@ -93,5 +93,6 @@ auth.settings.reset_password_requires_verification = True
 db.define_table('recipe',
 		Field('name','string'),
 		Field('description','text'),
-		Field('picture','upload'),
-		Field('likes','integer'))
+		Field('image','upload'),
+        auth.signature)
+#		Field('likes','integer'))
